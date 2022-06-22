@@ -1,3 +1,5 @@
+// developed by = gmpadron https://github.com/gmpadron
+
 //loading gmp
 
 $(document).ready(function() {
@@ -6,6 +8,7 @@ $(document).ready(function() {
     },1000);
     setTimeout(function(){
         $( ".gmp" ).css("opacity","1");
+        $( ".loading" ).css("transition","0.75s ease-out");
     },1500);
     setTimeout(function(){
         $( ".gmp" ).css("opacity","0");

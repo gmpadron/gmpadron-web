@@ -1,7 +1,66 @@
+// developed by = gmpadron https://github.com/gmpadron
+
 "use strict";
 
 var general = {
+    // Theme Page (Dark, Light)
+    themePagina: function () {
+      setTimeout(function () {
+        let themePage = localStorage.getItem("themePageKey");
+
+        if (themePage == null) {
+          localStorage.setItem("themePageKey", "Light");
+          $("body").addClass("themePageLight");
+          console.log("datos guardados");
+        } else if (themePage == "Light") {
+          $("body").addClass("themePageLight");
+          //console.log("modo Light");
+        } else if (themePage == "Dark") {
+          $("body").addClass("themePageDark");
+          //console.log("modo Dark");
+        } else {
+          console.log("error body theme page");
+        }
+
+        function functionThemePageModo() {
+          let themePage = localStorage.getItem("themePageKey");
+
+          if (themePage == "Light") {
+            $("body").addClass("themePageDark");
+            $("body").removeClass("themePageLight");
+            localStorage.setItem("themePageKey", "Dark");
+          } else if (themePage == "Dark") {
+            $("body").addClass("themePageLight");
+            $("body").removeClass("themePageDark");
+            localStorage.setItem("themePageKey", "Light");
+          } else {
+            console.log("error click theme page");
+          }
+        }
+
+        $(".themePageModo").click(function () {
+          functionThemePageModo();
+        });
+      }, 500);
+    },
+
+    languagesHeaderClick: function () {
+      // menu mobile of the page
+      $(".languagesModo").click(function () {
+        $(".languages-option").toggleClass("languages-option-on");
+      });
+
+      $(".content-menu").click(function () {
+        $(".languages-option").removeClass("languages-option-on");
+      });
+
+      $(".x-languages-option").click(function () {
+        $(".languages-option").removeClass("languages-option-on");
+      });
+    },
+
     headerMob: function () {
+      // menu mobile of the page
       $(".content-menu").click(function () {
         $("header").toggleClass("menu-mob-on");
       });
@@ -11,52 +70,40 @@ var general = {
       });
     },
 
-    themePagina: function() {
+    notUrl: function () {
+      //Get all the hyperlink elements
+      var links = document.getElementsByTagName("a");
 
-      let themePage = localStorage.getItem("themePageKey");
-
-      if(themePage == null){
-        localStorage.setItem("themePageKey", "Light");
-        $("body").addClass("themePageLight");
-        console.log("datos guardados");
-      }else if(themePage == "Light"){
-        $("body").addClass("themePageLight");
-        //console.log("modo Light");
-      }else if(themePage == "Dark"){
-        $("body").addClass("themePageDark");
-        //console.log("modo Dark");
-      }else{
-        console.log("error body theme page");
-      };
-
-      function functionThemePageModo() {
-        let themePage = localStorage.getItem("themePageKey");
-        
-          if(themePage == "Light"){
-            $("body").addClass("themePageDark");
-            $("body").removeClass("themePageLight");
-            localStorage.setItem("themePageKey", "Dark");
-          }else if(themePage == "Dark"){
-            $("body").addClass("themePageLight");
-            $("body").removeClass("themePageDark");
-            localStorage.setItem("themePageKey", "Light");
-          }else{
-            console.log("error click theme page");
-          }
-      };
-
-      $(".themePageModo").click(function () {
-        functionThemePageModo();
+      //Browse the previously created array
+      Array.prototype.forEach.call(links, function (elem, index) {
+        //Get the hyperlink target and if it refers to an id go inside condition
+        var elemAttr = elem.getAttribute("href");
+        if (elemAttr && elemAttr.includes("#")) {
+          //Replace the regular action with a scrolling to target on click
+          elem.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            //Scroll to the target element using replace() and regex to find the href's target id
+            document.getElementById(elemAttr.replace(/#/g, "")).scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "nearest",
+            });
+          });
+        }
       });
-
     },
 
     init: function () {
-      general.headerMob(), general.themePagina();
+      general.themePagina(),
+        general.languagesHeaderClick(),
+        general.headerMob(),
+        general.notUrl();
     },
   },
   inicio = {
     skillsBtn: function () {
+      // Action Skill
+
       //  var btnTitleSkill = $(".content-btn td");
       //  $(".content-btn td").click(function () {
       //    btnTitleSkill = $(this);
@@ -95,8 +142,7 @@ var general = {
   };
 
 function initialise() {
-  general.init(),
-  $("#inicio")[0] && inicio.init();
+  general.init(), $("#inicio")[0] && inicio.init();
 }
 
 $(function () {

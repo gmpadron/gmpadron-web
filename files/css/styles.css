@@ -1,3 +1,6 @@
+/* developed by = gmpadron https://github.com/gmpadron */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
 
 * {
@@ -82,7 +85,6 @@ h6 {
     height: 100vh;
     width: 100vw;
     background: #f3f3f3;
-    transition: 0.75s ease-out;
     z-index: 12;
 }
 
@@ -158,6 +160,58 @@ h6 {
 }
 
 /* END Loading */
+
+/* Languages */
+.languages-option {
+    position: fixed;
+    top: 100px;
+    left: 100%;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    z-index: 11;
+    background: #f3f3f3;
+    transition: 0.3s ease-out;
+}
+
+.languages-option.languages-option-on {
+    left: 0;
+}
+
+.content-languages-option {
+    top: 50%;
+    left: 50%;
+    margin-right: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.x-languages-option {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.x-languages-option span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.content-languages-option>div {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+/* END Languages */
 
 /* Cubo */
 
@@ -367,13 +421,13 @@ header nav ul {
 }
 
 header nav ul li {
-    padding: 20px 0;
-
+    padding: 15px 0;
 }
 
 header nav ul li a {
     font-size: 30px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .contacto-color {
@@ -547,11 +601,13 @@ section>div>div>div>h6 {
         font-size: 2.2em;
     }
 
+    header nav ul li {
+        padding: 10px 0;
+    }
+
     header nav ul li a {
         font-size: 26px;
     }
-
-    .content-cubo {}
 
     .content-contacto>div {
         margin: 10px;
@@ -654,6 +710,28 @@ section>div>div>div>h6 {
 
     /* END barra Desk */
 
+    /* Languages */
+
+    .languages-option{
+        height: 100vh;
+        top: 0;
+    }
+
+    .x-languages-option{
+        display: block;
+    }
+
+    .content-languages-option {
+        flex-wrap: nowrap;
+    }
+
+    .content-languages-option>div {
+        width: 100px;
+        margin: 0 20px;
+    }
+
+    /* END Languages */
+
     header {
         height: 100vh;
     }
@@ -704,7 +782,7 @@ section>div>div>div>h6 {
         padding: 10px 0;
     }
 
-    .themePageModo{
+    .themePageModo {
         margin: 0;
         float: right;
     }
@@ -734,7 +812,7 @@ section>div>div>div>h6 {
     header nav ul li {
         padding: 20px 0;
     }
-    
+
 }
 
 
@@ -761,11 +839,12 @@ body.themePageDark .pong-loader {
     }
 }
 
-body.themePageDark ,
+body.themePageDark,
 body.themePageDark header,
 body.themePageDark header nav,
 body.themePageDark .menu-status,
-body.themePageDark .loading {
+body.themePageDark .loading,
+body.themePageDark .languages-option {
     background: #1A1A1A;
 }
 
@@ -808,6 +887,7 @@ body.themePageDark .content-btn td,
 body.themePageDark .nombre-empresa {
     border-color: #9c9c9c;
 }
+
 body.themePageDark .themePageModo .status,
 body.themePageDark .barra-desk span,
 body.themePageDark .barra-desk span::after,
