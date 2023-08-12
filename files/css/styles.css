@@ -15,10 +15,10 @@
 
 body,
 html {
-    height: 100%;
-    overflow-x: hidden;
+    /*height: 100%;*/
+    /*overflow-x: hidden;*/
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 body {
@@ -536,7 +536,7 @@ section>div>div>div>h6 {
 }
 
 .content-btn table {
-    border-collapse: collapse;
+    border-collapse: unset;
     width: 100%;
 }
 
@@ -545,6 +545,8 @@ section>div>div>div>h6 {
     padding: 10px 12px;
     text-align: center;
     cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s ease-out;
 }
 
 .content-skills {
@@ -552,13 +554,20 @@ section>div>div>div>h6 {
 }
 
 .skills {
-    width: 100%;
-    background: #1a1a1a;
+    width: 98%;
+    /* background: #1a1a1a; */
     height: 256px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .skill {
-    display: none;
+    /* display: none; */
+    height: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+    transition: 0.3s ease-out;
 }
 
 .content-btn td.active-skill {
@@ -570,7 +579,9 @@ section>div>div>div>h6 {
 }
 
 .skill.active-skill {
-    display: block;
+    /* display: block; */
+    height: 100%;
+    transition-delay: 0.4s;
 }
 
 .skill ul {
@@ -589,6 +600,66 @@ section>div>div>div>h6 {
 .skill ul img {
     margin-right: 10px;
 }
+
+/* Carrousel experiencia laboral */
+
+.wrapper {
+    display: flex;
+    grid-gap: 1em;
+    overflow: hidden;
+    width: 100%;
+}
+
+.wrapper>.inner {
+    display: flex;
+    /* grid-gap: 1em; */
+    transition: all 0.75s ease-in-out;
+    width: max-content;
+}
+
+.card {
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    width: 310px;
+}
+
+.map {
+    margin-top: 1em;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.map>button {
+    all: unset;
+    cursor: pointer;
+    content: "";
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-bottom: 4px solid #1A1A1A;
+    border-right: 4px solid #1A1A1A;
+    transform: rotate(140deg);
+    margin: 0 5px;
+    transition: 0.3s ease-out;
+}
+
+.map>button.second {
+    transform: rotate(-40deg);
+}
+
+.map>button:hover {
+    border-color: #cb0000;
+}
+
+.wrapper .content-empresas {
+    width: 80vw;
+    max-width: 400px;
+}
+
+/* END Carrousel experiencia laboral */
 
 .nombre-empresa {
     margin-bottom: 10px;
@@ -636,6 +707,64 @@ section>div>div>div>h6 {
     a,
     li {
         font-size: 14px;
+    }
+
+    h6 {
+        font-size: 1.74em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    header nav ul li {
+        padding: 10px 0;
+    }
+
+    header nav ul li a {
+        font-size: 22px;
+    }
+
+    .content-contacto>div {
+        margin: 10px;
+    }
+
+    .themePageModo {
+        height: 20px;
+        width: 50px;
+    }
+
+    .themePageModo .status {
+        height: 20px;
+        width: 20px;
+    }
+
+    .content-seta-scroll {
+        bottom: 40px;
+    }
+
+    .seta-scroll {
+        width: 15px;
+        height: 15px;
+    }
+
+    .skills img {
+        max-height: 30px;
+    }
+
+    .skills {
+        height: 217px;
+    }
+}
+
+@media (max-height: 667px) {
+    p,
+    b,
+    i,
+    span,
+    a,
+    li {
+        font-size: 17px;
     }
 
     h6 {
@@ -859,9 +988,24 @@ section>div>div>div>h6 {
         float: right;
     }
 
-    header nav ul li:hover a {
-        font-size: 50px;
+    /* Hover letras nav header */
+
+    header nav ul li a {
+        color: #1A1A1A;
+        transition: all 280ms ease-in-out;
     }
+
+    header nav ul li a {
+        letter-spacing: 0;
+    }
+
+    header nav ul li:hover a,
+    header nav ul li:active a {
+        letter-spacing: 5px;
+    }
+
+    /* END Hover letras nav header */
+
 
     main {
         z-index: 9;
@@ -939,13 +1083,7 @@ body.themePageDark h6 {
     color: #f3f3f3;
 }
 
-body.themePageDark .barra-desk,
-body.themePageDark .skills,
-body.themePageDark .content-btn td.active-skill,
-body.themePageDark .diamante-negro,
-body.themePageDark .menu-status,
-body.themePageDark .menu-status::after,
-body.themePageDark .menu-status::before {
+body.themePageDark .barra-desk, body.themePageDark .skill, body.themePageDark .content-btn td.active-skill, body.themePageDark .diamante-negro, body.themePageDark .menu-status, body.themePageDark .menu-status::after, body.themePageDark .menu-status::before {
     background: #f3f3f3;
 }
 
@@ -958,6 +1096,14 @@ body.themePageDark .skill ul li,
 body.themePageDark .content-btn td,
 body.themePageDark .nombre-empresa {
     border-color: #9c9c9c;
+}
+
+body.themePageDark .map>button{
+    border-color: #f3f3f3;
+}
+
+body.themePageDark .map>button:hover{
+    border-color: #ffd400;
 }
 
 body.themePageDark .themePageModo .status,
