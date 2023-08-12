@@ -628,7 +628,7 @@ section>div>div>div>h6 {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
 .map>button {
@@ -637,12 +637,12 @@ section>div>div>div>h6 {
     content: "";
     display: block;
     position: relative;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-bottom: 4px solid #1A1A1A;
     border-right: 4px solid #1A1A1A;
     transform: rotate(140deg);
-    margin: 0 5px;
+    margin: 5px 10px;
     transition: 0.3s ease-out;
 }
 
