@@ -30,7 +30,8 @@ b,
 i,
 span,
 a,
-li {
+li,
+button {
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     font-weight: 500;
@@ -541,6 +542,7 @@ section>div>div>div>h6 {
 }
 
 .content-btn td {
+    width: 50%;
     border: 2px solid #2e2e2e;
     padding: 10px 12px;
     text-align: center;
@@ -550,7 +552,7 @@ section>div>div>div>h6 {
 }
 
 .content-skills {
-    max-width: 400px;
+    max-width: 300px;
 }
 
 .skills {
@@ -631,27 +633,21 @@ section>div>div>div>h6 {
     justify-content: space-around;
 }
 
-.map>button {
+.map div > button {
     all: unset;
     cursor: pointer;
-    content: "";
     display: block;
     position: relative;
-    width: 15px;
-    height: 15px;
-    border-bottom: 4px solid #1A1A1A;
-    border-right: 4px solid #1A1A1A;
-    transform: rotate(140deg);
     margin: 5px 10px;
     transition: 0.3s ease-out;
+    font-family: 'Quicksand', sans-serif;
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.map>button.second {
-    transform: rotate(-40deg);
-}
-
-.map>button:hover {
-    border-color: #cb0000;
+.map div > button:hover {
+    color: #cb0000;
 }
 
 .wrapper .content-empresas {
@@ -705,7 +701,8 @@ section>div>div>div>h6 {
     i,
     span,
     a,
-    li {
+    li,
+    button {
         font-size: 14px;
     }
 
@@ -763,7 +760,8 @@ section>div>div>div>h6 {
     i,
     span,
     a,
-    li {
+    li,
+    button {
         font-size: 17px;
     }
 
@@ -1098,12 +1096,12 @@ body.themePageDark .nombre-empresa {
     border-color: #9c9c9c;
 }
 
-body.themePageDark .map>button{
-    border-color: #f3f3f3;
+body.themePageDark .map div > button{
+    color: #f3f3f3;
 }
 
-body.themePageDark .map>button:hover{
-    border-color: #ffd400;
+body.themePageDark .map div > button:hover{
+    color: #ffd400;
 }
 
 body.themePageDark .themePageModo .status,
