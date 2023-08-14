@@ -555,6 +555,10 @@ section>div>div>div>h6 {
     max-width: 300px;
 }
 
+.content-skills .content-btn {
+    width: 100%;
+}
+
 .skills {
     width: 98%;
     /* background: #1a1a1a; */
@@ -633,7 +637,7 @@ section>div>div>div>h6 {
     justify-content: space-around;
 }
 
-.map div > button {
+.map div>button {
     all: unset;
     cursor: pointer;
     display: block;
@@ -646,7 +650,7 @@ section>div>div>div>h6 {
     font-weight: bold;
 }
 
-.map div > button:hover {
+.map div>button:hover {
     color: #cb0000;
 }
 
@@ -755,6 +759,7 @@ section>div>div>div>h6 {
 }
 
 @media (max-height: 667px) {
+
     p,
     b,
     i,
@@ -1081,7 +1086,13 @@ body.themePageDark h6 {
     color: #f3f3f3;
 }
 
-body.themePageDark .barra-desk, body.themePageDark .skill, body.themePageDark .content-btn td.active-skill, body.themePageDark .diamante-negro, body.themePageDark .menu-status, body.themePageDark .menu-status::after, body.themePageDark .menu-status::before {
+body.themePageDark .barra-desk,
+body.themePageDark .skill,
+body.themePageDark .content-btn td.active-skill,
+body.themePageDark .diamante-negro,
+body.themePageDark .menu-status,
+body.themePageDark .menu-status::after,
+body.themePageDark .menu-status::before {
     background: #f3f3f3;
 }
 
@@ -1096,11 +1107,11 @@ body.themePageDark .nombre-empresa {
     border-color: #9c9c9c;
 }
 
-body.themePageDark .map div > button{
+body.themePageDark .map div>button {
     color: #f3f3f3;
 }
 
-body.themePageDark .map div > button:hover{
+body.themePageDark .map div>button:hover {
     color: #ffd400;
 }
 
