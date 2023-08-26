@@ -6,68 +6,46 @@ var general = {
   // Theme Page (Dark, Light)
   themePagina: function () {
     setTimeout(function () {
-      let themePage = localStorage.getItem("themePageKey");
+      const body = $("body");
+      const themePage = localStorage.getItem("themePageKey");
 
-      if (themePage == null) {
-        localStorage.setItem("themePageKey", "Light");
-        $("body").addClass("themePageLight");
-        // console.log("datos guardados");
-      } else if (themePage == "Light") {
-        $("body").addClass("themePageLight");
-        //console.log("modo Light");
-      } else if (themePage == "Dark") {
-        $("body").addClass("themePageDark");
-        //console.log("modo Dark");
+      if (themePage === null || themePage === "Light") {
+        body.addClass("themePageLight");
+      } else if (themePage === "Dark") {
+        body.addClass("themePageDark");
       } else {
         console.log("error body theme page");
       }
 
-      function functionThemePageModo() {
-        let themePage = localStorage.getItem("themePageKey");
-
-        if (themePage == "Light") {
-          $("body").addClass("themePageDark");
-          $("body").removeClass("themePageLight");
-          localStorage.setItem("themePageKey", "Dark");
-        } else if (themePage == "Dark") {
-          $("body").addClass("themePageLight");
-          $("body").removeClass("themePageDark");
-          localStorage.setItem("themePageKey", "Light");
-        } else {
-          console.log("error click theme page");
-        }
-      }
-
       $(".themePageModo").click(function () {
-        functionThemePageModo();
+        const newTheme = themePage === "Light" ? "Dark" : "Light";
+        body.removeClass(`themePage${themePage}`).addClass(`themePage${newTheme}`);
+        localStorage.setItem("themePageKey", newTheme);
       });
+
     }, 500);
   },
 
   languagesHeaderClick: function () {
     // menu mobile of the page
-    $(".languagesModo").click(function () {
+    function toggleLanguagesOption() {
       $(".languages-option").toggleClass("languages-option-on");
-    });
+    }
 
-    $(".content-menu").click(function () {
-      $(".languages-option").removeClass("languages-option-on");
-    });
-
-    $(".x-languages-option").click(function () {
+    $(".languagesModo").click(toggleLanguagesOption);
+    $(".content-menu, .x-languages-option").click(function () {
       $(".languages-option").removeClass("languages-option-on");
     });
   },
 
   headerMob: function () {
     // menu mobile of the page
-    $(".content-menu").click(function () {
+    function toggleMobileMenu() {
       $("header").toggleClass("menu-mob-on");
-    });
+    }
 
-    $("header nav ul .li-menu").click(function () {
-      $("header").toggleClass("menu-mob-on");
-    });
+    $(".content-menu, header nav ul .li-menu").click(toggleMobileMenu);
+
   },
 
   notUrl: function () {
@@ -102,38 +80,28 @@ var general = {
 },
   inicio = {
     skillsBtn: function () {
-      // Action Skill
-
-      //  var btnTitleSkill = $(".content-btn td");
-      //  $(".content-btn td").click(function () {
-      //    btnTitleSkill = $(this);
-      //   $(this).toggleClass('active');
-      //  });
+      
+      function activateSkill(skillNumber) {
+        $(".skill, .content-btn td").removeClass("active-skill");
+        $(`#btn-${skillNumber}, #skill-${skillNumber}`).addClass("active-skill");
+      }
 
       $("#btn-1").click(function () {
-        $(".skill").removeClass("active-skill");
-        $(".content-btn td").removeClass("active-skill");
-        $("#btn-1").addClass("active-skill");
-        $("#skill-1").addClass("active-skill");
+        activateSkill(1);
       });
+
       $("#btn-2").click(function () {
-        $(".skill").removeClass("active-skill");
-        $(".content-btn td").removeClass("active-skill");
-        $("#btn-2").addClass("active-skill");
-        $("#skill-2").addClass("active-skill");
+        activateSkill(2);
       });
+
       $("#btn-3").click(function () {
-        $(".skill").removeClass("active-skill");
-        $(".content-btn td").removeClass("active-skill");
-        $("#btn-3").addClass("active-skill");
-        $("#skill-3").addClass("active-skill");
+        activateSkill(3);
       });
+
       $("#btn-4").click(function () {
-        $(".skill").removeClass("active-skill");
-        $(".content-btn td").removeClass("active-skill");
-        $("#btn-4").addClass("active-skill");
-        $("#skill-4").addClass("active-skill");
+        activateSkill(4);
       });
+
     },
 
     carrouselExperience: function () {
