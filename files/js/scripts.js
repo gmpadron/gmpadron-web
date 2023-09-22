@@ -7,9 +7,11 @@ var general = {
   themePagina: function () {
     setTimeout(function () {
       const body = $("body");
-      const themePage = localStorage.getItem("themePageKey");
+      let themePage = localStorage.getItem("themePageKey");
 
-      if (themePage === null || themePage === "Light") {
+      themePage = themePage ?? "Light";
+
+      if (themePage === "Light") {
         body.addClass("themePageLight");
       } else if (themePage === "Dark") {
         body.addClass("themePageDark");
@@ -21,7 +23,9 @@ var general = {
         const newTheme = themePage === "Light" ? "Dark" : "Light";
         body.removeClass(`themePage${themePage}`).addClass(`themePage${newTheme}`);
         localStorage.setItem("themePageKey", newTheme);
+        themePage = newTheme;
       });
+
 
     }, 500);
   },
@@ -80,7 +84,7 @@ var general = {
 },
   inicio = {
     skillsBtn: function () {
-      
+
       function activateSkill(skillNumber) {
         $(".skill, .content-btn td").removeClass("active-skill");
         $(`#btn-${skillNumber}, #skill-${skillNumber}`).addClass("active-skill");
